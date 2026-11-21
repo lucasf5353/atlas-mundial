@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>🌍 Atlas Mundial Interativo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="stylesheet" href="teste_separado_design.css">
+
+<script src="teste_separado_paises.js" defer></script>
+<script src="teste_separado_javascript.js" defer></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="estrelas"></div>
+
+<!-- =====================================================
+     CABEÇALHO
+===================================================== -->
+<header class="hero">
+  <div class="hero-bg">
+    <div class="earth"></div>
+  </div>
+
+  <div class="hero-content">
+    <h1>ATLAS MUNDIAL</h1>
+    <h2>INTERATIVO</h2>
+    <p>Países • Territórios • Capitais • Idiomas • Moedas • Bandeiras</p>
+  </div>
+</header>
+
+<p class="texto-explicacao">Configure o seu questionário</p>
+
+<!-- =====================================================
+     CONFIGURAÇÃO
+===================================================== -->
+<section class="configuracao-questionario">
+
+  <!-- O QUE PREENCHER -->
+  <div class="grupo-configuracao">
+    <h3>O que você quer preencher?</h3>
+    <div class="opcoes-configuracao">
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoPreencherPaises" checked>
+        <span class="checkbox-custom"></span>
+        <span>Países</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoPreencherCapitais">
+        <span class="checkbox-custom"></span>
+        <span>Capitais</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoPreencherContinentes">
+        <span class="checkbox-custom"></span>
+        <span>Continentes</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoPreencherEstados">
+        <span class="checkbox-custom"></span>
+        <span>Estados brasileiros</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoPreencherCapitaisEstados">
+        <span class="checkbox-custom"></span>
+        <span>Capitais dos estados</span>
+      </label>
+
+    </div>
+  </div>
+
+  <!-- O QUE MOSTRAR -->
+  <div class="grupo-configuracao">
+    <h3>O que você quer mostrar?</h3>
+    <div class="opcoes-configuracao">
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarPaises" checked>
+        <span class="checkbox-custom"></span>
+        <span>Países</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarCapitais">
+        <span class="checkbox-custom"></span>
+        <span>Capitais</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarContinentes">
+        <span class="checkbox-custom"></span>
+        <span>Continentes</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarBandeiras" checked>
+        <span class="checkbox-custom"></span>
+        <span>Bandeiras</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarEstados">
+        <span class="checkbox-custom"></span>
+        <span>Estados brasileiros</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarCapitaisEstados">
+        <span class="checkbox-custom"></span>
+        <span>Capitais dos estados</span>
+      </label>
+
+      <label class="opcao-checkbox">
+        <input type="checkbox" id="opcaoMostrarBandeirasEstados">
+        <span class="checkbox-custom"></span>
+        <span>Bandeiras dos estados</span>
+      </label>
+
+    </div>
+  </div>
+
+  <button type="button" id="btnGerarQuestionario" class="btn-gerar">
+    🌍 Gerar questionário
+  </button>
+
+  <div id="mensagemOpcao" class="mensagem-opcao">
+    Selecione pelo menos uma opção para mostrar.
+  </div>
+
+</section>
+
+<!-- =====================================================
+     OPÇÕES DO JOGO
+===================================================== -->
+<div class="opcoes-jogo">
+  <button type="button" id="btnAleatorio">🔀 Ordem aleatória</button>
+</div>
+
+<!-- =====================================================
+     PLACAR
+===================================================== -->
+<div id="placar" class="placar">
+
+  <div id="placarPaises">
+    Países:
+    <span id="acertosPaises">0</span>
+    /
+    <span id="totalPaises">0</span>
+  </div>
+
+  <div id="placarCapitais">
+    Capitais:
+    <span id="acertosCapitais">0</span>
+    /
+    <span id="totalCapitais">0</span>
+  </div>
+
+  <div id="placarContinentes">
+    Continentes:
+    <span id="acertosContinentes">0</span>
+    /
+    <span id="totalContinentes">0</span>
+  </div>
+
+  <div id="placarEstados">
+    Estados:
+    <span id="acertosEstados">0</span>
+    /
+    <span id="totalEstados">0</span>
+  </div>
+
+  <div id="placarCapitaisEstados">
+    Capitais dos estados:
+    <span id="acertosCapitaisEstados">0</span>
+    /
+    <span id="totalCapitaisEstados">0</span>
+  </div>
+
+  <div class="ultimo-placar">
+    Último resultado:
+    <br>
+
+    <span id="ultimoPaisesLinha">
+      Países: <span id="ultimoPaises">0</span>
+      <br>
+    </span>
+
+    <span id="ultimoCapitaisLinha">
+      Capitais: <span id="ultimoCapitais">0</span>
+      <br>
+    </span>
+
+    <span id="ultimoContinentesLinha">
+      Continentes: <span id="ultimoContinentes">0</span>
+      <br>
+    </span>
+
+    <span id="ultimoEstadosLinha">
+      Estados: <span id="ultimoEstados">0</span>
+      <br>
+    </span>
+
+    <span id="ultimoCapitaisEstadosLinha">
+      Capitais dos estados: <span id="ultimoCapitaisEstados">0</span>
+      <br>
+    </span>
+
+    Total: <span id="ultimoTotal">0</span>
+  </div>
+
+  <div class="recorde">
+    Recordes:
+    <br>
+
+    <span id="recordePaisesLinha">
+      Países: <span id="recordePaises">0</span>
+      <br>
+    </span>
+
+    <span id="recordeCapitaisLinha">
+      Capitais: <span id="recordeCapitais">0</span>
+      <br>
+    </span>
+
+    <span id="recordeContinentesLinha">
+      Continentes: <span id="recordeContinentes">0</span>
+      <br>
+    </span>
+
+    <span id="recordeEstadosLinha">
+      Estados: <span id="recordeEstados">0</span>
+      <br>
+    </span>
+
+    <span id="recordeCapitaisEstadosLinha">
+      Capitais dos estados: <span id="recordeCapitaisEstados">0</span>
+      <br>
+    </span>
+
+    Total: <span id="recordeTotal">0</span>
+  </div>
+
+  <button type="button" class="btn-reset" id="resetRecorde">
+    Resetar Recorde
+  </button>
+
+</div>
+
+<!-- =====================================================
+     QUESTIONÁRIO
+===================================================== -->
+<form autocomplete="off">
+  <ul id="listaPaises"></ul>
+</form>
+
+</body>
+</html>
